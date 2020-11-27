@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Container } from './styles';
-import BarSearch from './Components/BarSearch';
+import BarSearch from './Components/SearchBar';
 
 function App() {
   const [makes, setMakes] = useState([]);
