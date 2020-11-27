@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { FaChevronRight, FaMapMarkerAlt } from 'react-icons/fa';
 import axios from 'axios';
-import { darken } from 'polished';
 import {
   Container,
   WrapperSearch,
@@ -116,20 +116,20 @@ function Components({ makes }) {
               </label>
             </Row>
             <Row>
-              <label htmlFor="" style={{ marginRight: '-1px' }}>
+              <label htmlFor="state" style={{ marginRight: '-1px' }}>
                 <Row>
                   <FaMapMarkerAlt
                     style={{ color: '#B23141', marginRight: '5px' }}
                   />
                   Onde:
                 </Row>
-                <select name="" id="">
+                <select name="state" id="">
                   <option value="">São Paulo - SP</option>
                 </select>
               </label>
-              <label htmlFor="" style={{ marginLeft: '0px' }}>
+              <label htmlFor="raio" style={{ marginLeft: '0px' }}>
                 <span>Raio:</span>
-                <select name="" id="">
+                <select name="raio" id="">
                   <option value="">20km</option>
                   <option value="">40km</option>
                   <option value="">60km</option>
@@ -137,7 +137,7 @@ function Components({ makes }) {
                   <option value="">100km</option>
                 </select>
               </label>
-              <label htmlFor="">
+              <label htmlFor="Marca">
                 <span>Marca:</span>
                 <select name="Marca" onChange={searchModel}>
                   <option value="">Todas</option>
