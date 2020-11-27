@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/WebMotorsFrontEnd/webmotorsfront/static/js/main.150c571f.chunk.js",
-    "main.js.map": "/WebMotorsFrontEnd/webmotorsfront/static/js/main.150c571f.chunk.js.map",
-    "runtime-main.js": "/WebMotorsFrontEnd/webmotorsfront/static/js/runtime-main.57f9535c.js",
-    "runtime-main.js.map": "/WebMotorsFrontEnd/webmotorsfront/static/js/runtime-main.57f9535c.js.map",
-    "static/js/2.ec48e403.chunk.js": "/WebMotorsFrontEnd/webmotorsfront/static/js/2.ec48e403.chunk.js",
-    "static/js/2.ec48e403.chunk.js.map": "/WebMotorsFrontEnd/webmotorsfront/static/js/2.ec48e403.chunk.js.map",
-    "index.html": "/WebMotorsFrontEnd/webmotorsfront/index.html",
-    "static/js/2.ec48e403.chunk.js.LICENSE.txt": "/WebMotorsFrontEnd/webmotorsfront/static/js/2.ec48e403.chunk.js.LICENSE.txt"
+    "main.js": "/WebMotorsFrontEnd/static/js/main.150c571f.chunk.js",
+    "main.js.map": "/WebMotorsFrontEnd/static/js/main.150c571f.chunk.js.map",
+    "runtime-main.js": "/WebMotorsFrontEnd/static/js/runtime-main.81545c4c.js",
+    "runtime-main.js.map": "/WebMotorsFrontEnd/static/js/runtime-main.81545c4c.js.map",
+    "static/js/2.ca2a6853.chunk.js": "/WebMotorsFrontEnd/static/js/2.ca2a6853.chunk.js",
+    "static/js/2.ca2a6853.chunk.js.map": "/WebMotorsFrontEnd/static/js/2.ca2a6853.chunk.js.map",
+    "index.html": "/WebMotorsFrontEnd/index.html",
+    "static/js/2.ca2a6853.chunk.js.LICENSE.txt": "/WebMotorsFrontEnd/static/js/2.ca2a6853.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.57f9535c.js",
-    "static/js/2.ec48e403.chunk.js",
+    "static/js/runtime-main.81545c4c.js",
+    "static/js/2.ca2a6853.chunk.js",
     "static/js/main.150c571f.chunk.js"
   ]
 }
