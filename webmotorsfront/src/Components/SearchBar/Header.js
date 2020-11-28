@@ -12,7 +12,7 @@ export default function Header() {
   }
   return (
     <Row center spaceBetween>
-      <Button onClick={() => methodDoesNotExist}>Teste</Button>
+
       <Row row>
         <Button
           onClick={() => handleActiveAuto('auto')}
