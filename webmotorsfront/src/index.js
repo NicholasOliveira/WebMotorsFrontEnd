@@ -1,7 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createGlobalStyle } from 'styled-components';
+import * as Sentry from '@sentry/react';
+import { Integrations } from '@sentry/tracing';
 import App from './App';
+
+Sentry.init({
+  dsn: 'https://40fa98c42e4243cf912192703aa6a67f@o368706.ingest.sentry.io/5536377',
+  integrations: [
+    new Integrations.BrowserTracing(),
+  ],
+
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control
+  tracesSampleRate: 1.0,
+});
 
 export const GlobalStyles = createGlobalStyle`
   *{

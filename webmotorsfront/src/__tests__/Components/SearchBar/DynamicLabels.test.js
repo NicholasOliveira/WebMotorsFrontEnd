@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  render, fireEvent, cleanup,
+  render,
 } from '@testing-library/react';
 import { LabelMarca, LabelModel, LabelVersion } from '../../../Components/SearchBar/DynamicLabels';
 
