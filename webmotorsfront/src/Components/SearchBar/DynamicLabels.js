@@ -4,7 +4,7 @@ export function LabelMarca({ makes, searchModel }:any) {
   return (
     <label htmlFor="Marca">
       <span>Marca:</span>
-      <select name="Marca" onChange={searchModel}>
+      <select name="Marca" id="Marca" onChange={searchModel}>
         <option value="">Todas</option>
         {makes.map((make) => (
           <option key={make.ID} value={make.ID}>

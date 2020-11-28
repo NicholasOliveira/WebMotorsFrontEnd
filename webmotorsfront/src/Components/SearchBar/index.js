@@ -85,7 +85,7 @@ function Components({ makes }) {
 
       <ContainerProducts>
         {products.map((product) => (
-          <ProductItem product={product} />
+          <ProductItem key={product.ID} product={product} />
         ))}
       </ContainerProducts>
     </Wrapper>

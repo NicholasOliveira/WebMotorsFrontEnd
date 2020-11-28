@@ -1,9 +1,12 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import App from '../App';
+import '@testing-library/jest-dom';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/Marca/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App Component', () => {
+  test('renders app component', () => {
+    const { getByTestId } = render(<App />);
+    const linkElement = getByTestId('app');
+    expect(linkElement).toBeInTheDocument();
+  });
 });

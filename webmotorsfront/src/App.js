@@ -14,7 +14,7 @@ function App() {
   }, [makes]);
 
   return (
-    <Container>
+    <Container data-testid="app">
       <BarSearch makes={makes} />
     </Container>
   );
