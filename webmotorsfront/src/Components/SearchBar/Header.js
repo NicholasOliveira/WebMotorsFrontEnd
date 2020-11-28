@@ -12,7 +12,6 @@ export default function Header() {
   }
   return (
     <Row center spaceBetween>
-
       <Row row>
         <Button
           onClick={() => handleActiveAuto('auto')}
