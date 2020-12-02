@@ -6,7 +6,8 @@
 .pnp.js
 
 # testing
-
+/build
+/public
 
 # misc
 .DS_Store
