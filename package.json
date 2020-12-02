@@ -36,6 +36,7 @@
     "testMatch": [
       "**/__test__/**/*.test.js"
     ],
+    "testResultsProcessor": "jest-sonar-reporter",
     "testPathIgnorePatterns": [
       "/build/",
       "/coverage/",
@@ -78,6 +79,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.1.4",
+    "jest-sonar-reporter": "^2.0.0",
     "prettier": "^2.2.0",
     "react-app-rewired": "^2.0.2-next.0"
   }
