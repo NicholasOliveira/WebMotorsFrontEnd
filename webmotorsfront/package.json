@@ -27,6 +27,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
+    "coverage": "react-app-rewired test --collectCoverage --watchAll=false",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.js",
     "lint": "tsc --noEmit && eslint src/**/*.js"
