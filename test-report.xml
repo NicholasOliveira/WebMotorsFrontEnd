@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="/Users/imac20/Desktop/WebMotorsFrontEnd/src/__tests__/Components/SearchBar/DynamicLabels.test.js">
-    <testCase name="DynamicLabels Component should text &quot;Label Marca&quot; in Header" duration="40"/>
-    <testCase name="DynamicLabels Component should change &quot;Label Model&quot;" duration="11"/>
-    <testCase name="DynamicLabels Component should change &quot;Label Version&quot;" duration="5"/>
+    <testCase name="DynamicLabels Component should text &quot;Label Marca&quot; in Header" duration="38"/>
+    <testCase name="DynamicLabels Component should change &quot;Label Model&quot;" duration="8"/>
+    <testCase name="DynamicLabels Component should change &quot;Label Version&quot;" duration="6"/>
   </file>
   <file path="/Users/imac20/Desktop/WebMotorsFrontEnd/src/__tests__/Components/SearchBar/Header.test.js">
-    <testCase name="Header Component should text &quot;carros&quot; in Header" duration="62"/>
-    <testCase name="Header Component should text &quot;vender meu carro&quot; in Header" duration="16"/>
-    <testCase name="Header Component should has class active" duration="50"/>
-    <testCase name="Header Component should has class active" duration="8"/>
+    <testCase name="Header Component should text &quot;carros&quot; in Header" duration="56"/>
+    <testCase name="Header Component should text &quot;vender meu carro&quot; in Header" duration="11"/>
+    <testCase name="Header Component should has class active" duration="17"/>
+    <testCase name="Header Component should has class active" duration="5"/>
   </file>
   <file path="/Users/imac20/Desktop/WebMotorsFrontEnd/src/__tests__/App.test.js">
-    <testCase name="App Component renders app component" duration="163"/>
+    <testCase name="App Component renders app component" duration="136"/>
   </file>
 </testExecutions>
