@@ -15,6 +15,7 @@
     "@types/styled-components": "^5.1.4",
     "axios": "^0.21.0",
     "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.0",
     "polished": "^4.0.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -30,15 +31,25 @@
     "coverage": "react-app-rewired test --collectCoverage --watchAll=false",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.js",
-    "lint": "tsc --noEmit && eslint src/**/*.js"
+    "lint": "eslint src/**/*.js --fix"
   },
   "jest": {
     "testMatch": [
       "**/__test__/**/*.test.js"
     ],
+    "testPathIgnorePatterns": [
+      "/build/",
+      "/coverage/",
+      "/public/"
+    ],
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn format && yarn test --watchAll=false"
+    }
   },
   "eslintConfig": {
     "extends": [
