@@ -6,12 +6,12 @@
     <testCase name="DynamicLabels Component should change &quot;Label Version&quot;" duration="4"/>
   </file>
   <file path="/Users/imac20/Desktop/WebMotorsFrontEnd/src/__tests__/Components/SearchBar/Header.test.js">
-    <testCase name="Header Component should text &quot;carros&quot; in Header" duration="53"/>
+    <testCase name="Header Component should text &quot;carros&quot; in Header" duration="61"/>
     <testCase name="Header Component should text &quot;vender meu carro&quot; in Header" duration="7"/>
     <testCase name="Header Component should has class active" duration="13"/>
     <testCase name="Header Component should has class active" duration="5"/>
   </file>
   <file path="/Users/imac20/Desktop/WebMotorsFrontEnd/src/__tests__/App.test.js">
-    <testCase name="App Component renders app component" duration="136"/>
+    <testCase name="App Component renders app component" duration="166"/>
   </file>
 </testExecutions>
