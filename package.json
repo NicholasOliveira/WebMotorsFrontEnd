@@ -36,7 +36,6 @@
     "testMatch": [
       "**/__test__/**/*.test.js"
     ],
-    "testResultsProcessor": "jest-sonar-reporter",
     "testPathIgnorePatterns": [
       "/build/",
       "/coverage/",
