@@ -1,10 +1,10 @@
 const puppeteer = require('puppeteer');
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
-  await page.goto('https://google.com');
-  await page.screenshot({ path: './example.png' });
+  await page.goto('https://uol.com.br');
+  await page.screenshot({ path: './uol.png' });
 
   await browser.close();
 })();
