@@ -1,0 +1,80 @@
+- pipeline: "Build, Test and Deploy"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "master"
+  actions:
+  - action: "Build, Test"
+    type: "BUILD"
+    working_directory: "/usr/app"
+    docker_image_name: "node"
+    docker_image_tag: "12-alpine"
+    execute_commands:
+    - "yarn install"
+    - "yarn build"
+    - "yarn test --watchAll=false"
+    setup_commands:
+    - "yarn install"
+  - action: "Deploy to HEROKU"
+    type: "HEROKU"
+    application_name: "homolog-webmotors"
+    trigger_condition: "ALWAYS"
+    integration_hash: "5fc99fda29221a5bdc15f238"
+    use_custom_gitignore: false
+    isolated: true
+  - action: "Notification by e-mail"
+    type: "EMAIL"
+    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
+    from_name: "Manager Project DevOps"
+    content: "Your pipeline has been successfully executed."
+    send_as_html: true
+    recipients: "andreriggs90@gmail.com"
+    trigger_condition: "ALWAYS"
+
+- pipeline: "Build Project"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "develop"
+  ref_type: "BRANCH"
+  priority: "NORMAL"
+  fail_on_prepare_env_warning: true
+  trigger_condition: "ALWAYS"
+  actions:
+  - action: "Install Dependencies"
+    type: "BUILD"
+    working_directory: "/buddy/webmotorsfrontend"
+    docker_image_name: "library/node"
+    docker_image_tag: "12"
+    execute_commands:
+    - "#Install Dependencies"
+    - "npm install yarn"
+    - "yarn"
+    volume_mappings:
+    - "/:/buddy/webmotorsfrontend"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
+  - action: "Run Sonar and Coverage"
+    type: "BUILD"
+    working_directory: "/buddy/webmotorsfrontend"
+    docker_image_name: "library/node"
+    docker_image_tag: "12"
+    execute_commands:
+    - "export SONAR_SCANNER_VERSION=4.4.0.2170"
+    - "export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux"
+    - "curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux.zip"
+    - "unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/"
+    - "export PATH=$SONAR_SCANNER_HOME/bin:$PATH"
+    - "export SONAR_SCANNER_OPTS=\"-server\""
+    - ""
+    - "yarn test --watchAll=false --coverage"
+    - "sonar-scanner \\"
+    - "  -Dsonar.login=$SONAR_TOKEN \\"
+    - "  -Dsonar.organization=nicholasoliveira \\"
+    - "  -Dsonar.projectKey=NicholasOliveira_WebMotorsFrontEnd \\"
+    - "  -Dsonar.sources=. \\"
+    - "  -Dsonar.host.url=https://sonarcloud.io"
+    volume_mappings:
+    - "/:/buddy/webmotorsfrontend"
+    trigger_condition: "ALWAYS"
+    shell: "SH"
+  variables:
+  - key: "SONAR_TOKEN"
+    value: "secure!92T2v0vvTTi1ZZs6W21BAovXo3+guBCZJdpTB/9/sePkkjBmQhy2IJXtxUBaFQPB.jsE+GvEYK5Muk2iZbK0ZHA=="
+    encrypted: true
