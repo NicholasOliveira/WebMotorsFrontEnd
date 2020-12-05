@@ -59,7 +59,7 @@
     trigger_condition: "ALWAYS"
   variables:
   - key: "SONAR_TOKEN"
-    value: "secure!92T2v0vvTTi1ZZs6W21BAovXo3+guBCZJdpTB/9/sePkkjBmQhy2IJXtxUBaFQPB.jsE+GvEYK5Muk2iZbK0ZHA=="
+    value: "a2fa1d58cea86f45c477d80bf005ac637575808d"
     encrypted: false
   - key: "SONAR_PROJECT_KEY"
     value: "webmotorsfrontend"
