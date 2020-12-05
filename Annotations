@@ -12,3 +12,6 @@ heroku container:push node-server -a homolog-webmotors
 
 # Cria uma release da imagem do container com TAG
 heroku container:release node-server:1.0.0
+
+# Permissons git to push new user
+git remote set-url origin https://grupocesw:<password>@github.com/grupocesw/WebMotorsFrontEnd.gi
