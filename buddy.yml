@@ -46,7 +46,7 @@
     type: "HEROKU"
     application_name: "homolog-webmotors"
     trigger_condition: "ALWAYS"
-    integration_hash: "5fc99fda29221a5bdc15f238"
+    integration_hash: "5fcbef8e4f636e56e7441fc7"
     use_custom_gitignore: false
     isolated: true
   - action: "Notification by e-mail"
@@ -58,6 +58,21 @@
     recipients: "grupocesw@gmail.com"
     trigger_condition: "ALWAYS"
   variables:
-  - key: "SONAR_TOKEN2"
+  - key: "SONAR_TOKEN"
     value: "secure!92T2v0vvTTi1ZZs6W21BAovXo3+guBCZJdpTB/9/sePkkjBmQhy2IJXtxUBaFQPB.jsE+GvEYK5Muk2iZbK0ZHA=="
-    encrypted: true
+    encrypted: false
+  - key: "SONAR_PROJECT_KEY"
+    value: "webmotorsfrontend"
+    encrypted: false
+  - key: "SONAR_ORGANIZATION"
+    value: "grupocesw"
+    encrypted: false
+  - key: "SONAR_HOST_URL"
+    value: "https://sonarcloud.io"
+    encrypted: false
+  - key: "SONAR_SOURCES"
+    value: "."
+    encrypted: false
+  - key: "CREATE_REACT_APP_SENTRY"
+    value: "https://5d347110ba73444c9efba9448cf1d475@o486613.ingest.sentry.io/5546000"
+    encrypted: false
