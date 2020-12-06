@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Header from '../../../Components/SearchBar/Header';
+import '@testing-library/jest-dom/extend-expect';
 
 describe('Header Component', () => {
   test('should text "carros" in Header', () => {

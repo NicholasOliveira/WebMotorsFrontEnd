@@ -4,7 +4,7 @@ import {
   FieldsContain,
 } from './styles';
 
-export default function ProductItem({ product }:any) {
+export default function ProductItem({ product }) {
   return (
     <WrapperSearch key={product.ID}>
       <FieldsContain>
