@@ -32,7 +32,7 @@
     - "export SONAR_SCANNER_OPTS=\"-server\""
     - ""
     - "yarn test --watchAll=false --coverage"
-    - "sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=$SONAR_ORGANIZATION -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=$SONAR_SOURCES -Dsonar.host.url=$SONAR_HOST_URL"
+    - "sonar-scanner -X -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=$SONAR_ORGANIZATION -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=$SONAR_SOURCES -Dsonar.host.url=$SONAR_HOST_URL"
     volume_mappings:
     - "/:/buddy/webmotorsfrontend"
     trigger_condition: "ALWAYS"
