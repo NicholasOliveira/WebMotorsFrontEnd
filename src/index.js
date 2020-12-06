@@ -6,11 +6,13 @@ import { Integrations } from '@sentry/tracing';
 import App from './App';
 
 Sentry.init({
-  dsn: process.env.CREATE_REACT_APP_SENTRY,
+  dsn: 'https://dc9c71e4849f4af1824b50efb35fe674@o486613.ingest.sentry.io/5546060',
   integrations: [
     new Integrations.BrowserTracing(),
   ],
 
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control
   tracesSampleRate: 1.0,
 });
 
