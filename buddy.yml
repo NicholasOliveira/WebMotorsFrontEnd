@@ -61,7 +61,7 @@
       recipients: "grupocesw@gmail.com"
       trigger_condition: "ALWAYS"
       
-    variables:
+  variables:
     - key: "CREATE_REACT_APP_SENTRY"
       value: "https://5d347110ba73444c9efba9448cf1d475@o486613.ingest.sentry.io/5546000"
       encrypted: false
