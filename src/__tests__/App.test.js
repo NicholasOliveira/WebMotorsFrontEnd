@@ -1,6 +1,3 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from '../App';
 import '@testing-library/jest-dom/extend-expect';
 import '@testing-library/jest-dom';
 
@@ -14,6 +11,6 @@ import '@testing-library/jest-dom';
 
 describe('fn', () => {
   test('adds 1', () => {
-      expect(2).toEqual(2);
+    expect(2).toEqual(2);
   });
 });

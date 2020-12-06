@@ -32,7 +32,12 @@
     - "export SONAR_SCANNER_OPTS=\"-server\""
     - ""
     - "yarn test --watchAll=false --coverage"
-    - "sonar-scanner -X -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=$SONAR_ORGANIZATION -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=$SONAR_SOURCES -Dsonar.host.url=$SONAR_HOST_URL"
+    - "sonar-scanner \\"
+    - "  -Dsonar.login=$SONAR_TOKEN \\"
+    - "  -Dsonar.organization=$SONAR_ORGANIZATION \\"
+    - "  -Dsonar.projectKey=$SONAR_PROJECT_KEY \\"
+    - "  -Dsonar.sources=$SONAR_SOURCES \\"
+    - "  -Dsonar.host.url=$SONAR_HOST_URL"
     volume_mappings:
     - "/:/buddy/webmotorsfrontend"
     trigger_condition: "ALWAYS"
@@ -54,7 +59,7 @@
     trigger_condition: "ALWAYS"
   variables:
   - key: "SONAR_TOKEN"
-    value: "a2fa1d58cea86f45c477d80bf005ac637575808d"
+    value: "453348f10683c4cc769cb40d3d2c8a220031e907"
     encrypted: false
   - key: "SONAR_PROJECT_KEY"
     value: "webmotorsfrontend"
@@ -68,6 +73,6 @@
   - key: "SONAR_SOURCES"
     value: "."
     encrypted: false
-- key: "CREATE_REACT_APP_SENTRY"
-  value: "https://5d347110ba73444c9efba9448cf1d475@o486613.ingest.sentry.io/5546000"
-  encrypted: false
+  - key: "CREATE_REACT_APP_SENTRY"
+    value: "https://5d347110ba73444c9efba9448cf1d475@o486613.ingest.sentry.io/5546000"
+    encrypted: false
