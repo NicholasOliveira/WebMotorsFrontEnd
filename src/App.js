@@ -1,7 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import * as Sentry from '@sentry/react';
+import { Integrations } from '@sentry/tracing';
 import { Container } from './styles';
 import BarSearch from './Components/SearchBar';
+
+Sentry.init({
+  dsn: 'https://dc9c71e4849f4af1824b50efb35fe674@o486613.ingest.sentry.io/5546060',
+  integrations: [
+    new Integrations.BrowserTracing(),
+  ],
+
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control
+  tracesSampleRate: 1.0,
+});
 
 function App() {
   const [makes, setMakes] = useState([]);
@@ -19,11 +32,5 @@ function App() {
     </Container>
   );
 }
-
-//REMOVER
-exports.fn = arg => {
-  if (arg < 0) return 0;
-  return arg + 1;
-};
 
 export default App;
