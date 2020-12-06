@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+/* istanbul ignore file */
 import React, { useState } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 import axios from 'axios';

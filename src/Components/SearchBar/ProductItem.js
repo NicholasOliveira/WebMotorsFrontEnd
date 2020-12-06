@@ -1,3 +1,5 @@
+/* eslint react/prop-types: 0 */
+/* istanbul ignore file */
 import React from 'react';
 import {
   WrapperSearch,
