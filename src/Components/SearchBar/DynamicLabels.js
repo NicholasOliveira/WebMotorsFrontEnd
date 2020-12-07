@@ -1,6 +1,7 @@
+/* eslint react/prop-types: 0 */
 import React from 'react';
 
-export function LabelMarca({ makes, searchModel }:any) {
+export function LabelMarca({ makes, searchModel }) {
   return (
     <label htmlFor="Marca">
       <span>Marca:</span>
@@ -16,7 +17,7 @@ export function LabelMarca({ makes, searchModel }:any) {
   );
 }
 
-export function LabelModel({ models, searchVersion }:any) {
+export function LabelModel({ models, searchVersion }) {
   return (
     <label htmlFor="models" style={{ marginRight: 0 }}>
       <span>Modelo:</span>
@@ -32,7 +33,7 @@ export function LabelModel({ models, searchVersion }:any) {
   );
 }
 
-export function LabelVersion({ versions }:any) {
+export function LabelVersion({ versions }) {
   let ver = [];
   if (typeof versions !== 'undefined') {
     ver = versions;

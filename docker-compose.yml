@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  app:
+    container_name: node-server
+    build: .
+    ports:
+      - "3000:3000"
+    command: yarn
+    command: yarn build
+    command: yarn start
+    volumes:
+      - '.:/usr/app'
+      - '/usr/app/node_modules'

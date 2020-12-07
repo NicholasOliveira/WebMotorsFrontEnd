@@ -1,7 +1,9 @@
 import React from "react";
+import "regenerator-runtime";
+import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import App from "../App";
-import "@testing-library/jest-dom";
 
 describe("App Component", () => {
   test("renders app component", () => {
