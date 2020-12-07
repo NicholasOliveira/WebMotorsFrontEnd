@@ -39,7 +39,7 @@
     - "  -Dsonar.sources=$SONAR_SOURCES \\"
     - "  -Dsonar.host.url=$SONAR_HOST_URL \\"
     - "  -Dsonar.test.exclusions=**/styles.js,**/*.config.js,/test-ui.js,src/index.js,src/App.js,/config-overrides.js,src/Components/SearchBar/index.js,src/Components/SearchBar/ProductItem.js \\"
-    - "  -Dsonar.coverage.exclusions=**/styles.js,**/*.config.js,/test-ui.js,src/index.js,src/App.js,/config-overrides.js,src/Components/SearchBar/index.js,src/Components/SearchBar/ProductItem.js, src/test-ui.js"
+    - "  -Dsonar.coverage.exclusions=**/styles.js,**/*.config.js,/test-ui.js,src/index.js,src/App.js,/config-overrides.js,src/Components/SearchBar/index.js,src/Components/SearchBar/ProductItem.js, src/test-ui.js "
     volume_mappings:
     - "/:/buddy/webmotorsfrontend"
     trigger_condition: "ALWAYS"
