@@ -60,6 +60,29 @@
   - key: "SONAR_SOURCES"
     value: "."
     encrypted: false
+- pipeline: "Deploy Homolog"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "develop"
+  ref_type: "BRANCH"
+  priority: "NORMAL"
+  fail_on_prepare_env_warning: true
+  trigger_condition: "ALWAYS"
+  actions:
+  - action: "Notification by e-mail Homolog"
+    type: "HEROKU"
+    application_name: "homolog-webmotorsfrontend"
+    trigger_condition: "ALWAYS"
+    integration_hash: "5fcbef8e4f636e56e7441fc7"
+    use_custom_gitignore: false
+    isolated: true
+  - action: "Deploy Homolog"
+    type: "EMAIL"
+    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
+    from_name: "Manager Project DevOps"
+    content: "Deploy to homolog successfully."
+    send_as_html: true
+    recipients: "grupocesw@gmail.com"
+    trigger_condition: "ALWAYS"
 - pipeline: "CD"
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "refs/tags/*"
@@ -75,7 +98,7 @@
     integration_hash: "5fcbef8e4f636e56e7441fc7"
     use_custom_gitignore: false
     isolated: true
-  - action: "Notification by e-mail"
+  - action: "Notification by e-mail Production"
     type: "EMAIL"
     title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
     from_name: "Manager Project DevOps"
