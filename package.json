@@ -71,18 +71,18 @@
     "webpack-dev-server": "^3.11.0"
   },
   "jest": {
-    "jest": {
-      "watchPlugins": [
-        "jest-watch-typeahead/filename",
-        "jest-watch-typeahead/testname"
-      ]
-    },
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
     "testEnvironment": "node",
     "collectCoverage": true,
     "testResultsProcessor": "jest-sonar-reporter",
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/test/"
+      "/test/",
+      "/config-overrides.js",
+      "src/index.js"
     ],
     "testMatch": [
       "**/__test__/**/*.test.js"
@@ -90,7 +90,9 @@
     "testPathIgnorePatterns": [
       "/build/",
       "/coverage/",
-      "/public/"
+      "/public/",
+      "/config-overrides.js",
+      "src/index.js"
     ],
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect"
