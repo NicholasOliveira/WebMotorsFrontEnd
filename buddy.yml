@@ -62,7 +62,7 @@
     encrypted: false
 - pipeline: "CD"
   trigger_mode: "ON_EVERY_PUSH"
-  ref_name: "refs/tags/master"
+  ref_name: "refs/tags/*"
   ref_type: "WILDCARD"
   priority: "NORMAL"
   fail_on_prepare_env_warning: true
