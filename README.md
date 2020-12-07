@@ -1,5 +1,7 @@
 # WebMotorsFrontEnd
 
+[![buddy pipeline](https://app.buddy.works/grupocesw/webmotorsfrontend/pipelines/pipeline/295540/badge.svg?token=9ae651d2057a4b351cb21a8ed05fa4069cb84a5c5bed08cad8bc85b34af6e375 "buddy pipeline")](https://app.buddy.works/grupocesw/webmotorsfrontend/pipelines/pipeline/295540)
+[![buddy pipeline](https://app.buddy.works/grupocesw/webmotorsfrontend/pipelines/pipeline/295540/badge.svg?token=9ae651d2057a4b351cb21a8ed05fa4069cb84a5c5bed08cad8bc85b34af6e375 "buddy pipeline")](https://app.buddy.works/grupocesw/webmotorsfrontend/pipelines/pipeline/295540)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=webmotorsfrontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=webmotorsfrontend)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=webmotorsfrontend&metric=coverage)](https://sonarcloud.io/dashboard?id=webmotorsfrontend)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=webmotorsfrontend&metric=security_rating)](https://sonarcloud.io/dashboard?id=webmotorsfrontend)
