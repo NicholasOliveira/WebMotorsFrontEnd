@@ -2,9 +2,22 @@ const puppeteer = require('puppeteer');
 
 (async () => {
   const browser = await puppeteer.launch({ headless: true });
-  const page = await browser.newPage();
-  await page.goto('https://google.com');
-  await page.screenshot({ path: './example.png' });
+  try {
+    const page = await browser.newPage();
+    await page.goto('http://webmotorsfrontend.herokuapp.com/', { waitUntil: 'load' });
 
-  await browser.close();
+    const [button] = await page.$x("//button[contains(., 'VER OFERTAS')]");
+    if (button) {
+      await button.click();
+    }
+    await page.waitForSelector('section');
+    await browser.close();
+    console.log(true);
+    return true;
+  } catch (err) {
+    /* await page.screenshot({ path: './fail.png' }); */
+    await browser.close();
+    console.log(false);
+    return false;
+  }
 })();
