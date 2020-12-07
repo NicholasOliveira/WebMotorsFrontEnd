@@ -68,14 +68,14 @@
   fail_on_prepare_env_warning: true
   trigger_condition: "ALWAYS"
   actions:
-  - action: "Notification by e-mail Homolog"
+  - action: "Deploy to Heroku Homolog"
     type: "HEROKU"
     application_name: "homolog-webmotorsfrontend"
     trigger_condition: "ALWAYS"
     integration_hash: "5fcbef8e4f636e56e7441fc7"
     use_custom_gitignore: false
     isolated: true
-  - action: "Deploy Homolog"
+  - action: "Notification by e-mail Homolog"
     type: "EMAIL"
     title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
     from_name: "Manager Project DevOps"
@@ -91,7 +91,7 @@
   fail_on_prepare_env_warning: true
   trigger_condition: "ALWAYS"
   actions:
-  - action: "Deploy to HEROKU"
+  - action: "Deploy to HEROKU Production"
     type: "HEROKU"
     application_name: "webmotorsfrontend"
     trigger_condition: "ALWAYS"
