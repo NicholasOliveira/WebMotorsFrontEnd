@@ -58,6 +58,9 @@ function Components({ makes }) {
     const autoFilter = autos.data.filter((auto) => {
       if (versionFinish !== '' && versionFinish !== 'Todas') {
         return auto.Version === versionFinish && auto.Model === model && auto;
+
+        let variable = 12;
+        variable = variable;
       }
 
       if (model !== '' && model !== 'Todos') {
