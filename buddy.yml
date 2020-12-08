@@ -44,6 +44,15 @@
     - "/:/buddy/webmotorsfrontend"
     trigger_condition: "ALWAYS"
     shell: "SH"
+  - action: "Send Email notification"
+    type: "EMAIL"
+    trigger_time: "ON_FAILURE"
+    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
+    from_name: "Notification by e-mail in fail"
+    content: "Your pipeline fail."
+    send_as_html: true
+    recipients: "grupocesw@gmail.com"
+    trigger_condition: "ALWAYS"
   variables:
   - key: "SONAR_TOKEN"
     value: "453348f10683c4cc769cb40d3d2c8a220031e907"
