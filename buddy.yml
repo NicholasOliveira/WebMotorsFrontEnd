@@ -122,14 +122,11 @@
     value: "https://5d347110ba73444c9efba9448cf1d475@o486613.ingest.sentry.io/5546000"
     encrypted: false
 - pipeline: "CD - Continuous Delivery Staging"
-  trigger_mode: "MANUAL"
-  ref_type: "NONE"
-  priority: "NORMAL"
-  fetch_all_refs: true
-  fail_on_prepare_env_warning: true
-  trigger_condition: "SUCCESS_PIPELINE"
-  trigger_project_name: "webmotorsfrontend"
-  trigger_pipeline_name: "CI/CT"
+    trigger_mode: "MANUAL"
+    ref_type: "NONE"
+    priority: "NORMAL"
+    fail_on_prepare_env_warning: true
+    trigger_condition: "ALWAYS"
   actions:
   - action: "Deploy to Heroku Homolog"
     type: "HEROKU"
