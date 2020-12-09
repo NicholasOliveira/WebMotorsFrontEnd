@@ -69,7 +69,7 @@
   - key: "SONAR_SOURCES"
     value: "."
     encrypted: false
-- pipeline: "CD - Staging"
+- pipeline: "Staging - CD"
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "develop"
   ref_type: "BRANCH"
@@ -91,7 +91,7 @@
     send_as_html: true
     recipients: "grupocesw@gmail.com"
     trigger_condition: "ALWAYS"
-- pipeline: "CD - Production"
+- pipeline: "Production - CD"
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "refs/tags/*"
   ref_type: "WILDCARD"
