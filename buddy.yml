@@ -1,4 +1,4 @@
-- pipeline: "CI"
+- pipeline: "CI/CT"
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "refs/heads/*"
   ref_type: "WILDCARD"
@@ -44,6 +44,19 @@
     - "/:/buddy/webmotorsfrontend"
     trigger_condition: "ALWAYS"
     shell: "SH"
+  - action: "Test Functional"
+    type: "BUILD"
+    working_directory: "/buddy/webmotorsfrontend"
+    docker_image_name: "library/node"
+    docker_image_tag: "12"
+    execute_commands:
+    - "npm install yarn"
+    - "yarn"
+    - "node ./src/test-ui.js"
+    volume_mappings:
+    - "/:/buddy/webmotorsfrontend"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
   - action: "Trigger Deploy Homolog"
     type: "BUILD"
     working_directory: "/buddy/webmotorsfrontend"
@@ -80,27 +93,6 @@
   - key: "SONAR_SOURCES"
     value: "."
     encrypted: false
-- pipeline: "CT - Continuous Test"
-  trigger_mode: "ON_EVERY_PUSH"
-  ref_name: "refs/heads/*"
-  ref_type: "WILDCARD"
-  priority: "NORMAL"
-  fail_on_prepare_env_warning: true
-  trigger_condition: "ALWAYS"
-  actions:
-  - action: "Test Functional"
-    type: "BUILD"
-    working_directory: "/buddy/webmotorsfrontend"
-    docker_image_name: "library/node"
-    docker_image_tag: "12"
-    execute_commands:
-    - "npm install yarn"
-    - "yarn"
-    - "node ./src/test-ui.js"
-    volume_mappings:
-    - "/:/buddy/webmotorsfrontend"
-    trigger_condition: "ALWAYS"
-    shell: "BASH"
 - pipeline: "CD - Continuous Delivery Staging"
   trigger_mode: "MANUAL"
   ref_name: "develop"
