@@ -74,13 +74,12 @@
   ref_name: "develop"
   ref_type: "BRANCH"
   priority: "NORMAL"
-  start_date: "2020-12-08T23:54:00Z"
-  delay: 5
+  cron: ""
   fetch_all_refs: true
-  trigger_project_name: "webmotorsfrontend"
-  trigger_pipeline_name: "CI"
   fail_on_prepare_env_warning: true
   trigger_condition: "SUCCESS_PIPELINE"
+  trigger_project_name: "webmotorsfrontend"
+  trigger_pipeline_name: "CI"
   actions:
   - action: "Deploy to Heroku Homolog"
     type: "HEROKU"
