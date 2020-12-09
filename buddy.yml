@@ -45,11 +45,13 @@
     - "/:/buddy/webmotorsfrontend"
     trigger_condition: "ALWAYS"
     shell: "SH"
-  - action: "Test Functional"
+  - action: "Test Functional "
     type: "BUILD"
     working_directory: "/buddy/webmotorsfrontend"
     docker_image_name: "library/node"
     docker_image_tag: "12"
+    execute_commands:
+    - "node ./src/test-ui.js"
     execute_commands:
     - "node ./src/test-ui.js"
     volume_mappings:
