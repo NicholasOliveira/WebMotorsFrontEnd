@@ -67,6 +67,7 @@ function Components({ makes }) {
       if (make !== '' && make !== 'Todas') {
         return auto.Make === make && auto;
       }
+
       return autos.data;
     });
     setProducts(autoFilter);
