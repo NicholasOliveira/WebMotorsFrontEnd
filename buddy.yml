@@ -122,8 +122,9 @@
     value: "https://5d347110ba73444c9efba9448cf1d475@o486613.ingest.sentry.io/5546000"
     encrypted: false
 - pipeline: "CD - Continuous Delivery Staging"
-  trigger_mode: "MANUAL"
-  ref_type: "NONE"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "refs/heads/(^((?!master$).)*$)"
+  ref_type: "BRANCH"
   priority: "NORMAL"
   fail_on_prepare_env_warning: true
   trigger_condition: "ALWAYS"
