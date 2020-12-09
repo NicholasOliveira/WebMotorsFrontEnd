@@ -92,29 +92,6 @@
   - key: "SONAR_SOURCES"
     value: "."
     encrypted: false
-- pipeline: "CD - Continuous Delivery Staging"
-  trigger_mode: "MANUAL"
-  ref_name: "refs/heads/*"
-  ref_type: "WILDCARD"
-  priority: "NORMAL"
-  fail_on_prepare_env_warning: true
-  trigger_condition: "ALWAYS"
-  actions:
-  - action: "Deploy to Heroku Homolog"
-    type: "HEROKU"
-    application_name: "homolog-webmotorsfrontend"
-    trigger_condition: "ALWAYS"
-    integration_hash: "5fcbef8e4f636e56e7441fc7"
-    use_custom_gitignore: false
-    isolated: true
-  - action: "Notification by e-mail Homolog"
-    type: "EMAIL"
-    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
-    from_name: "Manager Project DevOps"
-    content: "Deploy to homolog successfully."
-    send_as_html: true
-    recipients: "grupocesw@gmail.com"
-    trigger_condition: "ALWAYS"
 - pipeline: "CD - Continuous Delivery Production"
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "refs/tags/*"
@@ -142,3 +119,26 @@
   - key: "CREATE_REACT_APP_SENTRY"
     value: "https://5d347110ba73444c9efba9448cf1d475@o486613.ingest.sentry.io/5546000"
     encrypted: false
+- pipeline: "CD - Continuous Delivery Staging"
+  trigger_mode: "MANUAL"
+  ref_name: "refs/heads/*"
+  ref_type: "NONE"
+  priority: "NORMAL"
+  fail_on_prepare_env_warning: true
+  trigger_condition: "ALWAYS"
+  actions:
+  - action: "Deploy to Heroku Homolog"
+    type: "HEROKU"
+    application_name: "homolog-webmotorsfrontend"
+    trigger_condition: "ALWAYS"
+    integration_hash: "5fcbef8e4f636e56e7441fc7"
+    use_custom_gitignore: false
+    isolated: true
+  - action: "Notification by e-mail Homolog"
+    type: "EMAIL"
+    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
+    from_name: "Manager Project DevOps"
+    content: "Deploy to homolog successfully."
+    send_as_html: true
+    recipients: "grupocesw@gmail.com"
+    trigger_condition: "ALWAYS"
