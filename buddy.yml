@@ -124,12 +124,12 @@
 - pipeline: "CD - Continuous Delivery Staging"
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "refs/heads/(^((?!master$).)*$)"
-  ref_type: "BRANCH"
+  ref_type: "WILDCARD"
   priority: "NORMAL"
   fail_on_prepare_env_warning: true
   trigger_condition: "ALWAYS"
   actions:
-  - action: "Deploy to Heroku Homolog"
+  - action: "Deploy to HEROKU Staging"
     type: "HEROKU"
     application_name: "homolog-webmotorsfrontend"
     trigger_condition: "ALWAYS"
