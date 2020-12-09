@@ -4,6 +4,7 @@
   ref_type: "WILDCARD"
   priority: "NORMAL"
   fail_on_prepare_env_warning: true
+  auto_clear_cache: true
   trigger_condition: "ALWAYS"
   actions:
   - action: "Install Dependencies"
@@ -50,9 +51,6 @@
     docker_image_name: "library/node"
     docker_image_tag: "12"
     execute_commands:
-    - "npm install yarn"
-    - "yarn"
-    - "rm ./package-lock.json"
     - "node ./src/test-ui.js"
     volume_mappings:
     - "/:/buddy/webmotorsfrontend"
@@ -102,7 +100,6 @@
   fetch_all_refs: true
   fail_on_prepare_env_warning: true
   trigger_condition: "SUCCESS_PIPELINE"
-  trigger_project_name: "webmotorsfrontend"
   trigger_pipeline_name: "CI"
   actions:
   - action: "Deploy to Heroku Homolog"
