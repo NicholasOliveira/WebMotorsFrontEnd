@@ -49,7 +49,7 @@
     trigger_time: "ON_FAILURE"
     title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
     from_name: "Notification by e-mail in fail"
-    content: "Your pipeline fail."
+    content: "Your pipeline $BUDDY_PIPELINE_NAME fail."
     send_as_html: true
     recipients: "grupocesw@gmail.com"
     trigger_condition: "ALWAYS"
@@ -70,12 +70,17 @@
     value: "."
     encrypted: false
 - pipeline: "Deploy Homolog"
-  trigger_mode: "ON_EVERY_PUSH"
+  trigger_mode: "SCHEDULED"
   ref_name: "develop"
   ref_type: "BRANCH"
   priority: "NORMAL"
+  start_date: "2020-12-08T23:54:00Z"
+  delay: 5
+  fetch_all_refs: true
+  trigger_project_name: "webmotorsfrontend"
+  trigger_pipeline_name: "CI"
   fail_on_prepare_env_warning: true
-  trigger_condition: "ALWAYS"
+  trigger_condition: "SUCCESS_PIPELINE"
   actions:
   - action: "Deploy to Heroku Homolog"
     type: "HEROKU"
@@ -89,6 +94,15 @@
     title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
     from_name: "Manager Project DevOps"
     content: "Deploy to homolog successfully."
+    send_as_html: true
+    recipients: "grupocesw@gmail.com"
+    trigger_condition: "ALWAYS"
+  - action: "Send Email notification"
+    type: "EMAIL"
+    trigger_time: "ON_FAILURE"
+    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
+    from_name: "Notification by e-mail in fail"
+    content: "Your pipeline $BUDDY_PIPELINE_NAME fail."
     send_as_html: true
     recipients: "grupocesw@gmail.com"
     trigger_condition: "ALWAYS"
@@ -112,6 +126,15 @@
     title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
     from_name: "Manager Project DevOps"
     content: "Deploy to production successfully."
+    send_as_html: true
+    recipients: "grupocesw@gmail.com"
+    trigger_condition: "ALWAYS"
+  - action: "Send Email notification"
+    type: "EMAIL"
+    trigger_time: "ON_FAILURE"
+    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
+    from_name: "Notification by e-mail in fail"
+    content: "Your pipeline $BUDDY_PIPELINE_NAME fail."
     send_as_html: true
     recipients: "grupocesw@gmail.com"
     trigger_condition: "ALWAYS"

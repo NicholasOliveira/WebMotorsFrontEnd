@@ -59,6 +59,7 @@ function Components({ makes }) {
       if (versionFinish !== '' && versionFinish !== 'Todas') {
         return auto.Version === versionFinish && auto.Model === model && auto;
 
+        // Sonarqube
         let variable = 12;
         variable = variable;
       }

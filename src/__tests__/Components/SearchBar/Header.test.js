@@ -11,13 +11,13 @@ describe('Header Component', () => {
   });
   test('should text "vender meu carro" in Header', () => {
     const { getByText } = render(<Header />);
-    const linkElement = getByText(/Vender meu carro2/i);
+    const linkElement = getByText(/Vender meu carro/i);
     expect(linkElement).toBeInTheDocument();
   });
   test('should has class active', () => {
     const handleActiveAuto = jest.fn();
     const { getByText } = render(<Header />);
-    const linkElement = getByText(/motos2/i);
+    const linkElement = getByText(/motos/i);
     linkElement.onclick = handleActiveAuto;
     fireEvent.click(linkElement);
     expect(handleActiveAuto).toHaveBeenCalledTimes(1);
@@ -25,7 +25,7 @@ describe('Header Component', () => {
   test('should has class active', () => {
     const handleActiveAuto = jest.fn();
     const { getByText } = render(<Header />);
-    const linkElement = getByText(/carros2/i);
+    const linkElement = getByText(/carros/i);
     linkElement.onclick = handleActiveAuto;
     fireEvent.click(linkElement);
     expect(handleActiveAuto).toHaveBeenCalledTimes(1);
