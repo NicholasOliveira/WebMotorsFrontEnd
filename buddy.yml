@@ -52,6 +52,7 @@
     execute_commands:
     - "npm install yarn"
     - "yarn"
+    - "rm ./package-lock.json"
     - "node ./src/test-ui.js"
     volume_mappings:
     - "/:/buddy/webmotorsfrontend"
@@ -96,7 +97,7 @@
 - pipeline: "CD - Continuous Delivery Staging"
   trigger_mode: "MANUAL"
   ref_name: "develop"
-  ref_type: "NONE"
+  ref_type: "WILDCARD"
   priority: "NORMAL"
   fetch_all_refs: true
   fail_on_prepare_env_warning: true
