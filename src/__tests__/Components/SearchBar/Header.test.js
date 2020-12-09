@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/extend-expect';
 describe('Header Component', () => {
   test('should text "carros" in Header', () => {
     const { getByText } = render(<Header />);
-    const linkElement = getByText(/carros2/i);
+    const linkElement = getByText(/carros/i);
     expect(linkElement).toBeInTheDocument();
   });
   test('should text "vender meu carro" in Header', () => {
