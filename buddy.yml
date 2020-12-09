@@ -1,7 +1,7 @@
-- pipeline: "Continouos Integration CI"
+- pipeline: "CI/CD/CT - Staging"
   trigger_mode: "ON_EVERY_PUSH"
-  ref_name: "refs/heads/*"
-  ref_type: "WILDCARD"
+  ref_name: "develop"
+  ref_type: "BRANCH"
   priority: "NORMAL"
   fail_on_prepare_env_warning: true
   trigger_condition: "ALWAYS"
@@ -44,12 +44,26 @@
     - "/:/buddy/webmotorsfrontend"
     trigger_condition: "ALWAYS"
     shell: "SH"
+  - action: "Deploy to Heroku Homolog"
+    type: "HEROKU"
+    application_name: "homolog-webmotorsfrontend"
+    trigger_condition: "ALWAYS"
+    integration_hash: "5fcbef8e4f636e56e7441fc7"
+    isolated: true
+  - action: "Notification by e-mail Homolog"
+    type: "EMAIL"
+    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
+    from_name: "Manager Project DevOps"
+    content: "Deploy to homolog successfully."
+    send_as_html: true
+    recipients: "grupocesw@gmail.com"
+    trigger_condition: "ALWAYS"
   - action: "Send Email notification"
     type: "EMAIL"
     trigger_time: "ON_FAILURE"
     title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
-    from_name: "Notification by e-mail in fail"
-    content: "Your pipeline fail."
+    from_name: "Notification by e-mail on fail"
+    content: "Your pipeline $BUDDY_PIPELINE_NAME failed."
     send_as_html: true
     recipients: "grupocesw@gmail.com"
     trigger_condition: "ALWAYS"
@@ -69,28 +83,7 @@
   - key: "SONAR_SOURCES"
     value: "."
     encrypted: false
-- pipeline: "Continouos Delivery - Staging"
-  ref_name: "develop"
-  ref_type: "BRANCH"
-  priority: "NORMAL"
-  fail_on_prepare_env_warning: true
-  trigger_condition: "ALWAYS"
-  actions:
-  - action: "Deploy to Heroku Homolog"
-    type: "HEROKU"
-    application_name: "homolog-webmotorsfrontend"
-    trigger_condition: "ALWAYS"
-    integration_hash: "5fcbef8e4f636e56e7441fc7"
-    isolated: true
-  - action: "Notification by e-mail Homolog"
-    type: "EMAIL"
-    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
-    from_name: "Manager Project DevOps"
-    content: "Deploy to homolog successfully."
-    send_as_html: true
-    recipients: "grupocesw@gmail.com"
-    trigger_condition: "ALWAYS"
-- pipeline: "Continouos Delivery - Production"
+- pipeline: "CI/CD/CT - Production"
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "refs/tags/*"
   ref_type: "WILDCARD"
@@ -113,7 +106,31 @@
     send_as_html: true
     recipients: "grupocesw@gmail.com"
     trigger_condition: "ALWAYS"
+  - action: "Send Email notification"
+    type: "EMAIL"
+    trigger_time: "ON_FAILURE"
+    title: "$BUDDY_PIPELINE_NAME execution #$BUDDY_EXECUTION_ID"
+    from_name: "Notification by e-mail on fail"
+    content: "Your pipeline $BUDDY_PIPELINE_NAME failed."
+    send_as_html: true
+    recipients: "grupocesw@gmail.com"
+    trigger_condition: "ALWAYS"
   variables:
+  - key: "SONAR_TOKEN"
+    value: "453348f10683c4cc769cb40d3d2c8a220031e907"
+    encrypted: false
+  - key: "SONAR_PROJECT_KEY"
+    value: "webmotorsfrontend"
+    encrypted: false
+  - key: "SONAR_ORGANIZATION"
+    value: "grupocesw"
+    encrypted: false
+  - key: "SONAR_HOST_URL"
+    value: "https://sonarcloud.io"
+    encrypted: false
+  - key: "SONAR_SOURCES"
+    value: "."
+    encrypted: false
   - key: "CREATE_REACT_APP_SENTRY"
     value: "https://5d347110ba73444c9efba9448cf1d475@o486613.ingest.sentry.io/5546000"
     encrypted: false
