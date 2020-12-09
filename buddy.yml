@@ -94,13 +94,11 @@
     encrypted: false
 - pipeline: "CD - Continuous Delivery Staging"
   trigger_mode: "MANUAL"
-  ref_name: "develop"
+  ref_name: "refs/heads/*"
   ref_type: "WILDCARD"
   priority: "NORMAL"
-  fetch_all_refs: true
   fail_on_prepare_env_warning: true
-  trigger_condition: "SUCCESS_PIPELINE"
-  trigger_pipeline_name: "CI"
+  trigger_condition: "ALWAYS"
   actions:
   - action: "Deploy to Heroku Homolog"
     type: "HEROKU"
