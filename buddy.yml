@@ -77,7 +77,7 @@
   fail_on_prepare_env_warning: true
   trigger_condition: "ALWAYS"
   actions:
-  - action: "Deploy to Heroku Homolog"
+  - action: "Deploy to Heroku Homolog "
     type: "HEROKU"
     application_name: "homolog-webmotorsfrontend"
     trigger_condition: "ALWAYS"
