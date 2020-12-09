@@ -44,6 +44,17 @@
     - "/:/buddy/webmotorsfrontend"
     trigger_condition: "ALWAYS"
     shell: "SH"
+  - action: "Trigger Deploy Homolog"
+    type: "BUILD"
+    working_directory: "/buddy/webmotorsfrontend"
+    docker_image_name: "library/node"
+    docker_image_tag: "12"
+    execute_commands:
+    - "yarn deploy:homolog"
+    volume_mappings:
+    - "/:/buddy/webmotorsfrontend"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
   - action: "Send Email notification"
     type: "EMAIL"
     trigger_time: "ON_FAILURE"
@@ -69,13 +80,37 @@
   - key: "SONAR_SOURCES"
     value: "."
     encrypted: false
-- pipeline: "Deploy Homolog"
+- pipeline: "CT - Continuous Test"
   trigger_mode: "ON_EVERY_PUSH"
-  ref_name: "develop"
-  ref_type: "BRANCH"
+  ref_name: "refs/heads/*"
+  ref_type: "WILDCARD"
   priority: "NORMAL"
   fail_on_prepare_env_warning: true
   trigger_condition: "ALWAYS"
+  actions:
+  - action: "Test Functional"
+    type: "BUILD"
+    working_directory: "/buddy/webmotorsfrontend"
+    docker_image_name: "library/node"
+    docker_image_tag: "12"
+    execute_commands:
+    - "npm install yarn"
+    - "yarn"
+    - "node ./src/test-ui.js"
+    volume_mappings:
+    - "/:/buddy/webmotorsfrontend"
+    trigger_condition: "ALWAYS"
+    shell: "BASH"
+- pipeline: "CD - Continuous Delivery Staging"
+  trigger_mode: "MANUAL"
+  ref_name: "develop"
+  ref_type: "NONE"
+  priority: "NORMAL"
+  fetch_all_refs: true
+  fail_on_prepare_env_warning: true
+  trigger_condition: "SUCCESS_PIPELINE"
+  trigger_project_name: "webmotorsfrontend"
+  trigger_pipeline_name: "CI"
   actions:
   - action: "Deploy to Heroku Homolog"
     type: "HEROKU"
@@ -92,7 +127,7 @@
     send_as_html: true
     recipients: "grupocesw@gmail.com"
     trigger_condition: "ALWAYS"
-- pipeline: "CD"
+- pipeline: "CD - Continuous Delivery Production"
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "refs/tags/*"
   ref_type: "WILDCARD"
