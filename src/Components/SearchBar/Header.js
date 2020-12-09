@@ -9,6 +9,8 @@ export default function Header() {
   const [activeAuto, setActiveAuto] = useState('auto');
   function handleActiveAuto(auto) {
     setActiveAuto(auto);
+    let trash = 12;
+    trash = trash;
   }
   return (
     <Row center spaceBetween>
