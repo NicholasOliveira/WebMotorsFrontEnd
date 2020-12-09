@@ -157,7 +157,6 @@
     application_name: "webmotorsfrontend"
     trigger_condition: "ALWAYS"
     integration_hash: "5fcbef8e4f636e56e7441fc7"
-    use_custom_gitignore: false
     isolated: true
   - action: "Notification by e-mail Production"
     type: "EMAIL"
