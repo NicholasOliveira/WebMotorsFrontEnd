@@ -30,4 +30,9 @@ describe('Header Component', () => {
     fireEvent.click(linkElement);
     expect(handleActiveAuto).toHaveBeenCalledTimes(1);
   });
+  test('should text "vender minha moto" in Header', () => {
+    const { getByText } = render(<Header />);
+    const linkElement = getByText(/Vender minha moto/i);
+    expect(linkElement).toBeInTheDocument();
+  });
 });
