@@ -40,7 +40,7 @@ export default function Header() {
           </span>
         </Button>
       </Row>
-      <SaleButton>Vende minha moto</SaleButton>
+      <SaleButton>Vender minha moto</SaleButton>
       <SaleButton>Vender meu carro</SaleButton>
     </Row>
   );
