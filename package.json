@@ -6,6 +6,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "jest --coverage",
+    "functional": "node ./src/test-ui.js",
     "coverage": "react-app-rewired test --collectCoverage --watchAll=false",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.js",

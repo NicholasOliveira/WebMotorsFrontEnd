@@ -25,24 +25,52 @@ function Components({ makes }) {
   const [products, setProducts] = useState([]);
   const [versions, setVersions] = useState([]);
   const [models, setModels] = useState([]);
+  const [make, setMake] = useState('');
+  const [model, setModel] = useState('');
+  const [versionFinish, setVersionFinish] = useState('');
 
   async function searchModel(e) {
-    const model = await axios.get(
+    const index = e.target.selectedIndex;
+    setMake(e.target[index].text);
+    const modelsFetch = await axios.get(
       `http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=${e.target.value}`,
     );
-    setModels(model.data);
+    setModels(modelsFetch.data);
   }
   async function searchVersion(e) {
+    const index = e.target.selectedIndex;
+    setModel(e.target[index].text);
     const version = await axios.get(
       `http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=${e.target.value}`,
     );
     setVersions(version.data);
   }
+
+  async function VersionFinish(e) {
+    const index = e.target.selectedIndex;
+    setVersionFinish(e.target[index].text);
+  }
+
   async function showAutos() {
     const autos = await axios.get(
       'http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1',
     );
-    setProducts(autos.data);
+    const autoFilter = autos.data.filter((auto) => {
+      if (versionFinish !== '' && versionFinish !== 'Todas') {
+        return auto.Version === versionFinish && auto.Model === model && auto;
+      }
+
+      if (model !== '' && model !== 'Todos') {
+        return auto.Model === model && auto;
+      }
+
+      if (make !== '' && make !== 'Todas') {
+        return auto.Make === make && auto;
+      }
+
+      return autos.data;
+    });
+    setProducts(autoFilter);
   }
 
   return (
@@ -64,7 +92,7 @@ function Components({ makes }) {
               <LabelRaio />
               <LabelMarca makes={makes} searchModel={searchModel} />
               <LabelModel models={models} searchVersion={searchVersion} />
-              <LabelVersion versions={versions} />
+              <LabelVersion VersionFinish={VersionFinish} versions={versions} />
             </Row>
             <Row>
               <LabelYear />
