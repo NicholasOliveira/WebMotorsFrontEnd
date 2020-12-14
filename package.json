@@ -2,6 +2,9 @@
   "name": "webmotorsfront",
   "version": "0.1.0",
   "private": true,
+  "engines" : {
+    "node" : ">=10.20.0"
+  },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
